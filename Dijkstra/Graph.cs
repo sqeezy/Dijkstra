@@ -11,7 +11,7 @@ namespace Dijkstras
         {
             vertices[name] = edges;
         }
-
+		//comments to add
         public List<char> shortest_path(char start, char finish)
         {
             Dictionary<char, char> previous = new Dictionary<char, char>();
@@ -31,7 +31,7 @@ namespace Dijkstras
                     distances[vertex.Key] = int.MaxValue;
                 }
 
-                chnodes.Add(vertex.Key);
+                nodes.Add(vertex.Key);
             }
 
             while (nodes.Count != 0)
@@ -60,10 +60,10 @@ namespace Dijkstras
 
                 foreach (var neighbor in vertices[smallest])
                 {
-                    var alt = distances[smallest] + neighbor.Value;
-                    if (alt < distances[neighbor.Key])
+                    var alternativeDistance = distances[smallest] + neighbor.Value;
+                    if (alternativeDistance < distances[neighbor.Key])
                     {
-                        distances[neighbor.Key] = alt;
+                        distances[neighbor.Key] = alternativeDistance;
                         previous[neighbor.Key] = smallest;
                     }
                 }
